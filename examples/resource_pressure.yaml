@@ -1,0 +1,10 @@
+scenario: cpu_io_pressure
+network: testnet
+
+faults:
+  - type: node.resource_stress
+    duration: 30
+    params:
+      cpu: 4
+      io: 2
+      timeout: 30
