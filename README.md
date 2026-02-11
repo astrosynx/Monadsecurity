@@ -1,33 +1,35 @@
-# 🚀 Astrosynx — Stress & Chaos Testing Suite
+# 🚀 Astrosynx — Stress & Chaos Testing Suite (for Monad)
 
-Production-oriented **chaos & stress testing toolkit** for **Monad validator nodes**.  
-Designed to safely simulate real-world failure conditions, measure recovery behavior, and improve operational resilience **before incidents happen**.
+Production-oriented **chaos & stress testing toolkit** purpose-built for **Monad validator infrastructure**.  
+Designed to safely simulate **Monad-realistic failure conditions**, measure recovery behavior, and improve **Monad operator resilience** **before incidents happen**.
 
 ---
 
 ## 🧠 What Is This?
 
-Astrosynx Stress & Chaos Testing Suite is a **scenario-driven framework** that allows validator operators to deliberately introduce controlled failures into their infrastructure and observe how systems behave under pressure.
+Astrosynx Stress & Chaos Testing Suite is a **scenario-driven framework** for **Monad validator operators** that deliberately introduces controlled failures into node infrastructure and observes how a **Monad validator** behaves under pressure.
 
-The goal is **not to break the network**, but to answer critical operational questions:
+The goal is **not to break Monad**, but to answer critical **Monad operations** questions:
 
-- How fast does a node recover after failure?
-- Does it rejoin peers correctly?
-- Are monitoring and alerting systems reacting in time?
-- Which configurations degrade silently under load?
+- How fast does a **Monad validator node** recover after failure?
+- Does it rejoin **Monad peers** correctly and stabilize networking?
+- Are monitoring and alerting systems reacting in time to **Monad-specific symptoms** (RPC health, sync drift, height stall)?
+- Which **Monad node configurations** degrade silently under load or restarts?
+
+This suite helps you validate **Monad readiness** in a repeatable, auditable way.
 
 ---
 
 ## ✨ Key Features
 
 ✅ Scenario-based fault injection (YAML)  
-🌐 Network degradation (latency, packet loss)  
-🔁 Validator service restarts (systemd)  
-🔥 CPU & IO stress testing (`stress-ng`)  
-📡 RPC-level Monad observability  
-📊 Recovery & MTTR measurement  
+🌐 Network degradation (latency, packet loss) **for Monad P2P conditions**  
+🔁 Validator service restarts (systemd) **for Monad validator service units**  
+🔥 CPU & IO stress testing (`stress-ng`) **to mimic Monad execution pressure**  
+📡 RPC-level **Monad observability** (health, sync status, height checks)  
+📊 Recovery & MTTR measurement **for Monad incidents & drills**  
 🛡️ Safe-by-default execution (`DRY_RUN`)  
-🧩 Modular & extensible architecture  
+🧩 Modular & extensible architecture **for Monad tooling and future network profiles**  
 
 ---
 
@@ -110,54 +112,52 @@ flowchart TD
 
     F1 --> F2
 ```
-
 ---
-
-## 💥 Fault Injection Types
+## 💥 Fault Injection Types (Monad-focused)
 
 ### 🌐 Network Faults
-- Artificial latency injection
-- Packet loss simulation
-- Connectivity degradation scenarios
+- Artificial latency injection **to emulate Monad peer degradation**
+- Packet loss simulation **to stress Monad P2P stability**
+- Connectivity degradation scenarios **that surface Monad sync drift and peer churn**
 
 ### 🔁 Node Faults
-- Controlled validator service restarts
-- Recovery and resync behavior validation
+- Controlled **Monad validator service** restarts
+- Recovery and resync behavior validation **under Monad protocol expectations**
 
 ### 🔥 Resource Pressure
-- CPU saturation
-- Disk / IO contention
-- Combined stress scenarios via `stress-ng`
+- CPU saturation **to model Monad execution spikes**
+- Disk / IO contention **to catch height stalls / slow sync**
+- Combined stress scenarios via `stress-ng` **for Monad worst-case drills**
 
 ---
 
-## 📊 Metrics Collected
+## 📊 Metrics Collected (Monad signals)
 
 📈 Execution duration  
-🔗 Peer count before / after faults  
-📡 RPC reachability  
-⛓️ Block height visibility  
-🔄 Syncing status  
-⏱️ Recovery behavior indicators  
+🔗 Peer count before / after faults **for Monad P2P**  
+📡 **Monad RPC** reachability / health checks  
+⛓️ Block height visibility **(height progress / stall detection)**  
+🔄 Syncing status **(catch-up, drift, stuck detection)**  
+⏱️ Recovery behavior indicators **(MTTR, stabilization window)**  
 
-These signals allow **direct correlation** between injected failures and actual protocol-level behavior.
+These signals allow **direct correlation** between injected failures and **Monad protocol-level behavior**, enabling faster post-mortems and better pre-production validation.
 
 ---
 
-## 🛡️ Safety Model
+## 🛡️ Safety Model (Monad-aware)
 
 Safety is enforced at the framework level:
 
 - 🧯 `DRY_RUN=1` enabled by default  
-- 🚫 Mainnet → automatic safe-mode  
+- 🚫 **Monad mainnet** → automatic safe-mode  
 - 🔄 Explicit rollback for all faults  
 - ⚠️ No cascading or parallel faults by default  
 
-This makes the suite suitable for **real infrastructure testing** without unnecessary risk.
+This makes the suite suitable for **real Monad validator infrastructure testing** without unnecessary risk.
 
 ---
 
-## 🧪 Example Scenario
+## 🧪 Example Scenario (Monad)
 
 ```yaml
 scenario: cpu_io_pressure
@@ -171,9 +171,6 @@ faults:
       io: 2
       timeout: 30
 ```
-
----
-
 ## ⚙️ Installation
 
 ```bash
@@ -182,38 +179,28 @@ cd astrosynx-chaos-suite
 pip install -r requirements.txt
 ```
 
-### System dependencies
-
-- `tc`
-- `stress-ng`
-- `systemd`
-
 ## ▶️ Usage
 
-```bash
+```
 python orchestrator/chaosctl.py examples/network_latency.yaml
 ```
 
-Dry-run mode is applied automatically unless explicitly disabled.
+## 🧩 Typical Use Cases (Monad operator workflow)
+
+- **Monad validator resilience** testing  
+- **Monad upgrades** & restart validation  
+- Monitoring and alerting verification **for Monad RPC + node health**  
+- Infrastructure comparison **across Monad environments** (bare-metal vs VPS, kernel/network tuning)  
+- Operational readiness assessments **for Monad incidents and runbooks**  
 
 ---
 
-## 🧩 Typical Use Cases
+## 🛣️ Roadmap (Monad-first)
 
-- Validator resilience testing  
-- Upgrade & restart validation  
-- Monitoring and alerting verification  
-- Infrastructure comparison  
-- Operational readiness assessments  
-
----
-
-## 🛣️ Roadmap
-
-🔜 MTTR timelines & recovery graphs  
-🔜 Missed block correlation  
-🔜 Peer churn analytics  
-🔜 Mainnet-safe fault profiles  
+🔜 MTTR timelines & recovery graphs **for Monad drills**  
+🔜 Missed block correlation **(Monad height stalls / recovery)**  
+🔜 Peer churn analytics **for Monad P2P**  
+🔜 Mainnet-safe fault profiles **for Monad operator playbooks**  
 🔜 Cross-network support  
 
-The framework is designed to **scale beyond Monad** and be adaptable to other blockchain networks.
+The framework is designed to **lead with Monad**, while remaining adaptable to other blockchain networks.
