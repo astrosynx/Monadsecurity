@@ -1,1 +1,8 @@
+scenario: node_restart_test
+network: testnet
 
+faults:
+  - type: node.restart
+    duration: 8
+    params:
+      service: storyd
