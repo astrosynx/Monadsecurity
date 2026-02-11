@@ -1,4 +1,4 @@
-# 🚀 Astrosynx — Stress & Chaos Testing Suite (for Monad)
+# 🌌 Astrosynx — Stress & Chaos Testing Suite (for Monad)
 
 Production-oriented **chaos & stress testing toolkit** purpose-built for **Monad validator infrastructure**.  
 Designed to safely simulate **Monad-realistic failure conditions**, measure recovery behavior, and improve **Monad operator resilience** **before incidents happen**.
