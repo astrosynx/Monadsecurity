@@ -135,7 +135,7 @@ flowchart TD
 
 📈 Execution duration  
 🔗 Peer count before / after faults  
-📡 gRPC reachability  
+📡 RPC reachability  
 ⛓️ Block height visibility  
 🔄 Syncing status  
 ⏱️ Recovery behavior indicators  
