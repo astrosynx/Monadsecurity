@@ -1,0 +1,8 @@
+scenario: network_latency_test
+network: testnet
+
+faults:
+  - type: network.latency
+    duration: 10
+    params:
+      delay_ms: 400
